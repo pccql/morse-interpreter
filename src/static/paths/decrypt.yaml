@@ -1,0 +1,22 @@
+post:
+  tags: [Decrypt]
+  summary: Decrypts a morse code message
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/message.yaml"
+        example:
+          message: .... . .-.. .-.. ---
+  responses:
+    "200":
+      description: Decrypted message
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/message.yaml"
+          example:
+            message: Hello
+    "400":
+      description: Only dashes, dots and spaces are allowed
